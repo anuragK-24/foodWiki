@@ -3,6 +3,7 @@ import http from "http";
 import mongoose, { Error } from "mongoose";
 import { config } from "./config/config";
 import Logging from "./library/Logging";
+import cuisineRoutes from "./routes/Cuisine";
 
 const router = express();
 //connnect to monngoose
@@ -55,6 +56,8 @@ const StartServer = () => {
   });
 
   //   Routes
+
+    router.use('/cuisines', cuisineRoutes)
 
   // HealthCheck of API
 
