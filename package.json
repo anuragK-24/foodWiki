@@ -1,7 +1,7 @@
 {
   "name": "foodWiki",
   "version": "1.0.0",
-  "description": "This is the food recipe API, that gives the information about the food recipe",
+  "description": "This is the food wiki API, that gives the information about the food and their respective cusines",
   "main": "src/server.ts",
   "scripts": {
     "build": "rm -rf build/ && tsc",
