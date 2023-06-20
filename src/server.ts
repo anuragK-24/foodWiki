@@ -4,6 +4,7 @@ import mongoose, { Error } from "mongoose";
 import { config } from "./config/config";
 import Logging from "./library/Logging";
 import cuisineRoutes from "./routes/Cuisine";
+import dishRoutes from "./routes/Dish";
 
 const router = express();
 //connnect to monngoose
@@ -57,7 +58,8 @@ const StartServer = () => {
 
   //   Routes
 
-    router.use('/cuisines', cuisineRoutes)
+  router.use("/cuisines", cuisineRoutes);
+  router.use("/dishes", dishRoutes);
 
   // HealthCheck of API
 
@@ -69,10 +71,14 @@ const StartServer = () => {
   router.use((req, res, next) => {
     const error = new Error("not Found");
     Logging.err(error);
-    return res.status(404).json({message:error.message});
+    return res.status(404).json({ message: error.message });
   });
 
-//   creating http 
+  //   creating http
 
-  http.createServer(router).listen(config.server.port, ()=> Logging.info(`Server is Running on Port ${config.server.port}`))
+  http
+    .createServer(router)
+    .listen(config.server.port, () =>
+      Logging.info(`Server is Running on Port ${config.server.port}`)
+    );
 };
