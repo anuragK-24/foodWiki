@@ -21,6 +21,8 @@ const createDish = (req: Request, res: Response, next: NextFunction) => {
 const readDish = (req: Request, res: Response, next: NextFunction) => {
   const dishId = req.params.dishId;
   return Dish.findById(dishId)
+    .populate("cuisine")
+    .select("-__v")
     .then((dish) =>
       dish
         ? res.status(200).json({ dish })
@@ -30,6 +32,8 @@ const readDish = (req: Request, res: Response, next: NextFunction) => {
 };
 const readAllDish = (req: Request, res: Response, next: NextFunction) => {
   return Dish.find()
+    .populate("cuisine")//it'll add the cuisine name with it's id, inside the get of json of the Dish api
+    .select("-__v") // if don't want "__v" in the get request
     .then((dishes) => res.status(200).json({ dishes }))
     .catch((err) => res.status(500).json({ err }));
 };

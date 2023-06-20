@@ -12,7 +12,7 @@ export interface IDishModel extends ICuisine, Document {}
 const DishSchema: Schema = new Schema(
   {
     title: { type: String, require: true },
-    cuisine: { type: Schema.Types.ObjectId, require: true, ref: "Author" },
+    cuisine: { type: Schema.Types.ObjectId, require: true, ref: "Cuisine" },
   },
   {
     timestamps: true,
