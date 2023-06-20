@@ -1,5 +1,5 @@
 {
-  "name": "foodrecipe",
+  "name": "foodWiki",
   "version": "1.0.0",
   "description": "This is the food recipe API, that gives the information about the food recipe",
   "main": "src/server.ts",
