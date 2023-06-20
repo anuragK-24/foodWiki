@@ -4,7 +4,6 @@ import Cuisine from "../models/Cuisine";
 
 const createCuisine = (req: Request, res: Response, next: NextFunction) => {
   const { name } = req.body;
-  console.log("Reached till here ", name);
 
   const cuisine = new Cuisine({
     _id: new mongoose.Types.ObjectId(),
