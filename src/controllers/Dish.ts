@@ -3,14 +3,15 @@ import mongoose from "mongoose";
 import Dish from "../models/Dish";
 
 const createDish = (req: Request, res: Response, next: NextFunction) => {
-  const { title, dishImage, cuisine } = req.body;
-  console.log("Reached till here", title, cuisine, dishImage);
+  const { title, dishImage, cuisine, recipe } = req.body;
+  console.log("Reached till here", title, cuisine, dishImage, recipe);
 
   const dish = new Dish({
     _id: new mongoose.Types.ObjectId(),
     title,
     dishImage,
     cuisine,
+    recipe,
   });
 
   return dish

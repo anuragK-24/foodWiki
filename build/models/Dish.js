@@ -27,6 +27,7 @@ const mongoose_1 = __importStar(require("mongoose"));
 const DishSchema = new mongoose_1.Schema({
     title: { type: String, require: true },
     dishImage: { type: String, require: false },
+    recipe: { type: String, require: true },
     cuisine: { type: mongoose_1.Schema.Types.ObjectId, require: true, ref: "Cuisine" },
 }, {
     timestamps: true,

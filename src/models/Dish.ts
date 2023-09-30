@@ -13,6 +13,7 @@ const DishSchema: Schema = new Schema(
   {
     title: { type: String, require: true },
     dishImage: { type: String, require: false },
+    recipe: { type: String, require: true },
     cuisine: { type: Schema.Types.ObjectId, require: true, ref: "Cuisine" },
   },
   {
