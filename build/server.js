@@ -33,7 +33,9 @@ const config_1 = require("./config/config");
 const Logging_1 = __importDefault(require("./library/Logging"));
 const Cuisine_1 = __importDefault(require("./routes/Cuisine"));
 const Dish_1 = __importDefault(require("./routes/Dish"));
+const cors_1 = __importDefault(require("cors"));
 const router = (0, express_1.default)();
+router.use((0, cors_1.default)());
 //connnect to monngoose
 mongoose_1.default
     .connect(config_1.config.mongo.url, { retryWrites: true, w: "majority" })

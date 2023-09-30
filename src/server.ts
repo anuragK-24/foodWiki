@@ -5,8 +5,10 @@ import { config } from "./config/config";
 import Logging from "./library/Logging";
 import cuisineRoutes from "./routes/Cuisine";
 import dishRoutes from "./routes/Dish";
+import cors from "cors";
 
 const router = express();
+router.use(cors());
 //connnect to monngoose
 mongoose
   .connect(config.mongo.url, { retryWrites: true, w: "majority" })
