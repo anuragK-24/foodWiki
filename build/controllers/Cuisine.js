@@ -7,9 +7,11 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const Cuisine_1 = __importDefault(require("../models/Cuisine"));
 const createCuisine = (req, res, next) => {
     const { name } = req.body;
+    const { dishImage } = req.body;
     const cuisine = new Cuisine_1.default({
         _id: new mongoose_1.default.Types.ObjectId(),
         name,
+        dishImage,
     });
     return cuisine
         .save()

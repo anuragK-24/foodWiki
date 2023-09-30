@@ -4,10 +4,12 @@ import Cuisine from "../models/Cuisine";
 
 const createCuisine = (req: Request, res: Response, next: NextFunction) => {
   const { name } = req.body;
+  const { dishImage } = req.body;
 
   const cuisine = new Cuisine({
     _id: new mongoose.Types.ObjectId(),
     name,
+    dishImage,
   });
 
   return cuisine
