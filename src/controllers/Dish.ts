@@ -3,12 +3,13 @@ import mongoose from "mongoose";
 import Dish from "../models/Dish";
 
 const createDish = (req: Request, res: Response, next: NextFunction) => {
-  const { title, cuisine } = req.body;
-  console.log("Reached till here", title, cuisine);
+  const { title, dishImage, cuisine } = req.body;
+  console.log("Reached till here", title, cuisine, dishImage);
 
   const dish = new Dish({
     _id: new mongoose.Types.ObjectId(),
     title,
+    dishImage,
     cuisine,
   });
 
@@ -32,7 +33,7 @@ const readDish = (req: Request, res: Response, next: NextFunction) => {
 };
 const readAllDish = (req: Request, res: Response, next: NextFunction) => {
   return Dish.find()
-    .populate("cuisine")//it'll add the cuisine name with it's id, inside the get of json of the Dish api
+    .populate("cuisine") //it'll add the cuisine name with it's id, inside the get of json of the Dish api
     .select("-__v") // if don't want "__v" in the get request
     .then((dishes) => res.status(200).json({ dishes }))
     .catch((err) => res.status(500).json({ err }));

@@ -6,11 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const Dish_1 = __importDefault(require("../models/Dish"));
 const createDish = (req, res, next) => {
-    const { title, cuisine } = req.body;
-    console.log("Reached till here", title, cuisine);
+    const { title, dishImage, cuisine } = req.body;
+    console.log("Reached till here", title, cuisine, dishImage);
     const dish = new Dish_1.default({
         _id: new mongoose_1.default.Types.ObjectId(),
         title,
+        dishImage,
         cuisine,
     });
     return dish
